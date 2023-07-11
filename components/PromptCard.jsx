@@ -34,7 +34,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
           onClick={handleProfileClick}
         >
           <Image
-            src={post.creator.image}
+            src={session?.user.image}
             alt='user_image'
             width={40}
             height={40}
@@ -74,7 +74,8 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         #{post.tag}
       </p>
 
-      {session?.user.id === post?.creator._id && pathName === "/profile" && (
+      {/* i removed '=== post?.creator._id ' */}
+      {session?.user.id && pathName === "/profile" && (
         <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
           <p
             className='font-inter text-sm green_gradient cursor-pointer'
